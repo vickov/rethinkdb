@@ -1,0 +1,18 @@
+version: '2.1'
+# rethinkdb demonstration of the Autopilot pattern
+
+services:
+  rethinkdb:
+    build: .
+    mem_limit: 1g
+    restart: always
+    dns:
+      - 127.0.0.1
+    ports:
+      - 29015:29015
+      - 28015:28015
+      - 8080:8080
+    environment:
+      - CONSUL=10.0.0.40
+      - CONSUL_AGENT=1
+    
